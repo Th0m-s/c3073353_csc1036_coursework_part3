@@ -75,7 +75,7 @@ public class Main {
 
         // Filter Button ActionListener
 
-        categoryFilterPanel.getFilterButton().addActionListener(e -> applyFilter());
+        categoryFilterPanel.getFilterButton().addActionListener(e -> categoryFilterPanel.applyFilter());
 
         // Restore Button ActionListener
 
