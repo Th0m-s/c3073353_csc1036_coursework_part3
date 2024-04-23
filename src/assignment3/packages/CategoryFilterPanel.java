@@ -7,6 +7,10 @@ import java.util.List;
 public class CategoryFilterPanel extends JPanel {
     private ExpensesManager expensesManager;
     private SavedExpensesPanel savedExpensesPanel;
+    private JComboBox<Category> filterComboBox;
+    private JButton filterButton;
+
+
 
 
 
@@ -16,9 +20,6 @@ public class CategoryFilterPanel extends JPanel {
     public CategoryFilterPanel(ExpensesManager expensesManager, SavedExpensesPanel savedExpensesPanel) {
         this.expensesManager = expensesManager;
         this.savedExpensesPanel = savedExpensesPanel;
-
-        JComboBox<Category> filterComboBox;
-        JButton filterButton;
 
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
