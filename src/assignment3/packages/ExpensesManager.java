@@ -10,7 +10,7 @@ public class ExpensesManager {
 
     public ExpensesManager() {
         // initially no expense
-        expenses = new ArrayList<>;
+        expenses = new ArrayList<>();
     }
 
     // add an expense to the existing list of expenses
