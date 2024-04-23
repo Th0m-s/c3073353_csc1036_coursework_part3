@@ -40,7 +40,7 @@ public class Main {
         // Listener for clicking savebutton
         newExpensesPanel.getSaveButton().addActionListener(e ->  {
             double amount = newExpensesPanel.getAmount();
-            String category = newExpensesPanel.getExpenseCategory();
+            Category category = newExpensesPanel.getExpenseCategory();
             LocalDate date = newExpensesPanel.getDate();
 
             Expense newExpense = new Expense(amount, category, date);
