@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="000bd51d-c64b-49fb-8be4-a23a7fb7a6f4" name="Changes" comment="changed String to Category line 43">
+    <list default="true" id="000bd51d-c64b-49fb-8be4-a23a7fb7a6f4" name="Changes" comment="added () to arraylist in ExpensesManager constructor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment3/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +75,35 @@
       <workItem from="1711017810999" duration="544000" />
       <workItem from="1711706432819" duration="727000" />
     </task>
+    <task id="LOCAL-00001" summary="changed String to Category line 43">
+      <created>1713878763202</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713878763202</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added object to applyFilter in lambda function">
+      <created>1713879112126</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713879112126</updated>
+    </task>
+    <task id="LOCAL-00003" summary="moved filterComboBox and filterButton to private attributes not just constructor">
+      <created>1713879553016</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713879553016</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added () to arraylist in ExpensesManager constructor">
+      <created>1713879958521</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713879958521</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +122,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed String to Category line 43" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed String to Category line 43" />
+    <MESSAGE value="added object to applyFilter in lambda function" />
+    <MESSAGE value="moved filterComboBox and filterButton to private attributes not just constructor" />
+    <MESSAGE value="added () to arraylist in ExpensesManager constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="added () to arraylist in ExpensesManager constructor" />
   </component>
 </project>

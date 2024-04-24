@@ -59,7 +59,7 @@ public class Main {
                 boolean saved = editDialog.showDialog(selectedExpense);
                 if (saved) {
                     Expense editedExpense = editDialog.getEditedExpense();
-                    expensesManager.replaceExpense(selectedRow, selectedExpense);
+                    expensesManager.replaceExpense(selectedRow, editedExpense);
                     savedExpensesPanel.updateTable(expensesManager.getAllExpenses());
                 }
                 }
