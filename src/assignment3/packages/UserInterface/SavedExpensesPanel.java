@@ -1,4 +1,7 @@
-package assignment3.packages;
+package assignment3.packages.UserInterface;
+
+import assignment3.packages.Handler.Expense;
+import assignment3.packages.Handler.SavedExpenses;
 
 import javax.swing.*;
 import java.awt.*;

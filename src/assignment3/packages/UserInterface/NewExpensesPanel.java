@@ -1,4 +1,6 @@
-package assignment3.packages;
+package assignment3.packages.UserInterface;
+
+import assignment3.packages.Handler.Category;
 
 import javax.swing.*;
 import java.awt.*;
