@@ -1,6 +1,13 @@
 package assignment3;
 
-import assignment3.packages.*;
+import assignment3.packages.Handler.Category;
+import assignment3.packages.Handler.Expense;
+import assignment3.packages.Handler.ExpensesManager;
+import assignment3.packages.UserInterface.CategoryFilterPanel;
+import assignment3.packages.UserInterface.NewExpensesPanel;
+import assignment3.packages.UserInterface.SavedExpensesEditDialog;
+import assignment3.packages.UserInterface.SavedExpensesPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
