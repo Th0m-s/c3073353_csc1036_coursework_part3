@@ -1,4 +1,4 @@
-package assignment3.packages;
+package assignment3.packages.Handler;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
