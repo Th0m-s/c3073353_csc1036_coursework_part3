@@ -1,4 +1,6 @@
-package assignment3.packages.Handler;
+package assignment3.packages.UserInterface;
+
+import assignment3.packages.Handler.Expense;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
