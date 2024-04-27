@@ -79,6 +79,14 @@ public class Main {
             savedExpensesPanel.updateTable(expensesManager.getAllExpenses());
         });
 
+        newExpensesPanel.getDeleteButton().addActionListener(e -> {
+            int selectedRow = savedExpensesPanel.getSavedSelectedExpenseIndex();
+            if(selectedRow != -1) {
+                expensesManager.deleteExpense(expensesManager.getAllExpenses().get(selectedRow));
+                savedExpensesPanel.updateTable(expensesManager.getAllExpenses());
+            }
+        });
+
 
         // Filter Button ActionListener
 
