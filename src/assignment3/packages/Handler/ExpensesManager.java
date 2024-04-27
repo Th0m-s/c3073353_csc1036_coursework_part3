@@ -31,6 +31,10 @@ public class ExpensesManager {
         expenses.clear();
     }
 
+    // Remove expense
+    public void deleteExpense(Expense deletedExpense) {
+        expenses.remove(deletedExpense);
+    }
 
     // return the entire list of expenses added so far
     public List<Expense> getAllExpenses() {
