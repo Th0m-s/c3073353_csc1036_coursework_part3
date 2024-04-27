@@ -16,6 +16,7 @@ public class NewExpensesPanel extends JPanel {
     private final JButton saveButton;
     private final JButton clearButton;
     private final JButton editButton;
+    private final JButton deleteButton;
 
     public NewExpensesPanel() {
         setLayout(new GridLayout(6, 4)); // Adjust layout as needed
@@ -42,12 +43,14 @@ public class NewExpensesPanel extends JPanel {
         saveButton = new JButton("Save");
         editButton = new JButton("Edit");
         clearButton = new JButton("Clear");
+        deleteButton = new JButton("Delete");
 
         // Add action listeners for buttons...
 
         add(saveButton);
         add(editButton);
         add(clearButton);
+        add(deleteButton);
 
     }
 
@@ -62,6 +65,10 @@ public class NewExpensesPanel extends JPanel {
 
     public JButton getEditButton() {
         return editButton;
+    }
+
+    public JButton getDeleteButton() {
+        return deleteButton;
     }
     public double getAmount() {
         try {
