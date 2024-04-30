@@ -13,7 +13,8 @@ public class CategoryFilterPanel extends JPanel {
     private SavedExpensesPanel savedExpensesPanel;
     private JComboBox<Category> filterComboBox;
     private JButton filterButton;
-
+    private JButton sumButton;
+    private JLabel SumLabel;
 
 
 
@@ -36,6 +37,12 @@ public class CategoryFilterPanel extends JPanel {
         restoreButton = new JButton("Restore");
         add(restoreButton);
 
+        sumButton = new JButton("Sum");
+        add(sumButton);
+
+        SumLabel = new JLabel("Total: 0");
+        add(SumLabel);
+
     }
 
     // Methods to get the selected category
@@ -47,6 +54,8 @@ public class CategoryFilterPanel extends JPanel {
     public JButton getRestoreButton() {
         return restoreButton;
     }
+
+    public JButton getSumButton() { return sumButton;}
 
 
 
@@ -62,6 +71,18 @@ public class CategoryFilterPanel extends JPanel {
         if (previouslySavedExpenses != null) {
             savedExpensesPanel.updateTable(previouslySavedExpenses);
         }
+    }
+
+    public int sum() {
+        int sum = 0;
+        for(int i = 0; i < savedExpensesPanel.getExpenseTable().getRowCount(); i++) {
+            sum += (double) savedExpensesPanel.getExpenseTable().getValueAt(i, 0);
+        }
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        SumLabel.setText("Total: " + sum);
     }
 
 
