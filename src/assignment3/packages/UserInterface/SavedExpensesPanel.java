@@ -31,6 +31,10 @@ public class SavedExpensesPanel extends JPanel {
         savedExpenses.setExpenses(expenses);
     }
 
+    public JTable getExpenseTable() {
+        return this.jsavedExpenseTable;
+    }
+
 
     public List<Expense> getpreviouslySavedExpenses() {
         return previouslySavedExpenses;
