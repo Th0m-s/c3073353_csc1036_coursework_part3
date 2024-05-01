@@ -4,8 +4,9 @@ import assignment3.packages.Handler.Category;
 import assignment3.packages.Handler.Expense;
 import assignment3.packages.Handler.ExpensesManager;
 import assignment3.packages.UserInterface.CategoryFilterPanel;
+import assignment3.packages.UserInterface.Dialogs.InvalidAmountDialog;
 import assignment3.packages.UserInterface.NewExpensesPanel;
-import assignment3.packages.UserInterface.SavedExpensesEditDialog;
+import assignment3.packages.UserInterface.Dialogs.SavedExpensesEditDialog;
 import assignment3.packages.UserInterface.SavedExpensesPanel;
 
 import javax.swing.*;
@@ -45,14 +46,21 @@ public class Main {
 
 
         // Listener for clicking savebutton
+
+        InvalidAmountDialog negativeDialog = new InvalidAmountDialog(frame); //Error message dialog box
+
         newExpensesPanel.getSaveButton().addActionListener(e ->  {
             double amount = newExpensesPanel.getAmount();
             Category category = newExpensesPanel.getExpenseCategory();
             LocalDate date = newExpensesPanel.getDate();
+            if(amount != 0.0) {
+                Expense newExpense = new Expense(amount, category, date);
+                expensesManager.addExpense(newExpense);
+                savedExpensesPanel.updateTable(expensesManager.getAllExpenses());
+            } else {
+                negativeDialog.setVisible(true);
+            }
 
-            Expense newExpense = new Expense(amount, category, date);
-            expensesManager.addExpense(newExpense);
-            savedExpensesPanel.updateTable(expensesManager.getAllExpenses());
         });
 
         SavedExpensesEditDialog editDialog = new SavedExpensesEditDialog(frame);
@@ -66,8 +74,13 @@ public class Main {
                 boolean saved = editDialog.showDialog(selectedExpense);
                 if (saved) {
                     Expense editedExpense = editDialog.getEditedExpense();
-                    expensesManager.replaceExpense(selectedRow, editedExpense);
-                    savedExpensesPanel.updateTable(expensesManager.getAllExpenses());
+                    if(editedExpense.amount() > 0) {
+                        expensesManager.replaceExpense(selectedRow, editedExpense);
+                        savedExpensesPanel.updateTable(expensesManager.getAllExpenses());
+                    } else {
+                        negativeDialog.setVisible(true);
+                    }
+
                 }
                 }
         });
