@@ -49,4 +49,10 @@ public class ExpensesManager {
                 .collect(Collectors.toList());
     }
 
+    public List<Expense> getExpensesByCategoryandCurrency(Category category, Currency currency) {
+        return expenses.stream()
+                .filter(expense -> expense.category().equals(category) && expense.currency().equals(currency))
+                .collect(Collectors.toList());
+    }
+
 }
