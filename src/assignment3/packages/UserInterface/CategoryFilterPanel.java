@@ -1,6 +1,7 @@
 package assignment3.packages.UserInterface;
 
 import assignment3.packages.Handler.Category;
+import assignment3.packages.Handler.Currency;
 import assignment3.packages.Handler.Expense;
 import assignment3.packages.Handler.ExpensesManager;
 
@@ -12,6 +13,7 @@ public class CategoryFilterPanel extends JPanel {
     private ExpensesManager expensesManager;
     private SavedExpensesPanel savedExpensesPanel;
     private JComboBox<Category> filterComboBox;
+    private JComboBox<Currency> currencyfilterComboBox;
     private JButton filterButton;
     private JButton sumButton;
     private JLabel SumLabel;
@@ -31,6 +33,9 @@ public class CategoryFilterPanel extends JPanel {
         filterComboBox = new JComboBox<>(Category.values());
         add(filterComboBox);
 
+        currencyfilterComboBox = new JComboBox<>(Currency.values());
+        add(currencyfilterComboBox);
+
         filterButton = new JButton("Filter");
         add(filterButton);
 
@@ -41,6 +46,7 @@ public class CategoryFilterPanel extends JPanel {
         add(sumButton);
 
         SumLabel = new JLabel("Total: 0");
+        SumLabel.setPreferredSize(new Dimension(100, SumLabel.getPreferredSize().height));
         add(SumLabel);
 
     }
@@ -61,8 +67,9 @@ public class CategoryFilterPanel extends JPanel {
 
     public void applyFilter() {
         Category selectedCategory = (Category) filterComboBox.getSelectedItem();
+        Currency selectedCurrency = (Currency) currencyfilterComboBox.getSelectedItem();
         // Retrieve filtered expenses and update the table
-        savedExpensesPanel.updateTable(expensesManager.getExpensesByCategory(selectedCategory));
+        savedExpensesPanel.updateTable(expensesManager.getExpensesByCategoryandCurrency(selectedCategory, selectedCurrency));
     }
 
     public void restoreFilter(){

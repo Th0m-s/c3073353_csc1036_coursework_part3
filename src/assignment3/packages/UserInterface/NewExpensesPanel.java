@@ -1,6 +1,7 @@
 package assignment3.packages.UserInterface;
 
 import assignment3.packages.Handler.Category;
+import assignment3.packages.Handler.Currency;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 
 public class NewExpensesPanel extends JPanel {
     private final JTextField amountField;
+    private final JComboBox<Currency> currencyComboBox;
     private final JComboBox<Category> categoryComboBox;
     private final JComboBox<Integer> dayComboBox;
     private final JComboBox<String> monthComboBox;
@@ -19,11 +21,15 @@ public class NewExpensesPanel extends JPanel {
     private final JButton deleteButton;
 
     public NewExpensesPanel() {
-        setLayout(new GridLayout(6, 4)); // Adjust layout as needed
+        setLayout(new GridLayout(8, 4)); // Adjust layout as needed
 
         add(new JLabel("Amount:"));
         amountField = new JTextField();
         add(amountField);
+
+        add(new JLabel("Currency"));
+        currencyComboBox = new JComboBox<>(Currency.values());
+        add(currencyComboBox);
 
         add(new JLabel("Category:"));
         categoryComboBox = new JComboBox<>(Category.values());
@@ -81,6 +87,8 @@ public class NewExpensesPanel extends JPanel {
     public Category getExpenseCategory() {
         return (Category) categoryComboBox.getSelectedItem();
     }
+
+    public Currency getExpenseCurrency() { return (Currency) currencyComboBox.getSelectedItem();}
 
     public LocalDate getDate() {
         // Construct and return a LocalDate object from the date components

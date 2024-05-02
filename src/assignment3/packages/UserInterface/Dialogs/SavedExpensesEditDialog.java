@@ -1,6 +1,7 @@
-package assignment3.packages.UserInterface;
+package assignment3.packages.UserInterface.Dialogs;
 
 import assignment3.packages.Handler.Category;
+import assignment3.packages.Handler.Currency;
 import assignment3.packages.Handler.Expense;
 
 import javax.swing.*;
@@ -11,6 +12,7 @@ import java.util.Date;
 
 public class SavedExpensesEditDialog extends JDialog {
     private final JTextField amountField = new JTextField(10);
+    private final JComboBox<Currency> currencyComboBox = new JComboBox<>(Currency.values());
     private final JComboBox<Category> categoryComboBox = new JComboBox<>(Category.values());
     private final JSpinner dateSpinner = new JSpinner(new SpinnerDateModel());
     private boolean saved = false;
@@ -21,6 +23,9 @@ public class SavedExpensesEditDialog extends JDialog {
 
         add(new JLabel("Amount:"));
         add(amountField);
+
+        add(new JLabel("Currency"));
+        add(currencyComboBox);
 
         add(new JLabel("Category:"));
         add(categoryComboBox);
@@ -47,6 +52,7 @@ public class SavedExpensesEditDialog extends JDialog {
     public boolean showDialog(Expense expense) {
         // Initialize dialog fields with expense details
         amountField.setText(String.valueOf(expense.amount()));
+        currencyComboBox.setSelectedItem(expense.currency());
         categoryComboBox.setSelectedItem(expense.category());
         dateSpinner.setValue(java.sql.Date.valueOf(expense.date()));
 
@@ -62,9 +68,10 @@ public class SavedExpensesEditDialog extends JDialog {
 
     public Expense getEditedExpense() {
         double amount = Double.parseDouble(amountField.getText());
+        Currency currency = (Currency) currencyComboBox.getSelectedItem();
         Category category = (Category) categoryComboBox.getSelectedItem();
         Date date = (Date) dateSpinner.getValue();
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return new Expense(amount, category, localDate);
+        return new Expense(amount, category, localDate, currency);
     }
 }
