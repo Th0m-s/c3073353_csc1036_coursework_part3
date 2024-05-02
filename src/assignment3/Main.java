@@ -1,9 +1,11 @@
 package assignment3;
 
 import assignment3.packages.Handler.Category;
+import assignment3.packages.Handler.Currency;
 import assignment3.packages.Handler.Expense;
 import assignment3.packages.Handler.ExpensesManager;
 import assignment3.packages.UserInterface.CategoryFilterPanel;
+import assignment3.packages.UserInterface.Dialogs.DifferentCurrencyDialog;
 import assignment3.packages.UserInterface.Dialogs.InvalidAmountDialog;
 import assignment3.packages.UserInterface.NewExpensesPanel;
 import assignment3.packages.UserInterface.Dialogs.SavedExpensesEditDialog;
@@ -51,10 +53,11 @@ public class Main {
 
         newExpensesPanel.getSaveButton().addActionListener(e ->  {
             double amount = newExpensesPanel.getAmount();
+            Currency currency = newExpensesPanel.getExpenseCurrency();
             Category category = newExpensesPanel.getExpenseCategory();
             LocalDate date = newExpensesPanel.getDate();
             if(amount != 0.0) {
-                Expense newExpense = new Expense(amount, category, date);
+                Expense newExpense = new Expense(amount, category, date, currency);
                 expensesManager.addExpense(newExpense);
                 savedExpensesPanel.updateTable(expensesManager.getAllExpenses());
             } else {
@@ -111,7 +114,23 @@ public class Main {
 
         //Sum Button ActionListener
 
-        categoryFilterPanel.getSumButton().addActionListener(e -> categoryFilterPanel.setSum(categoryFilterPanel.sum()));
+        categoryFilterPanel.getSumButton().addActionListener(e -> {
+            boolean sameCurrency = true;
+            String firstCurrency = savedExpensesPanel.getExpenseTable().getValueAt(0, 3).toString();
+            for(int i = 1; i < savedExpensesPanel.getExpenseTable().getRowCount(); i++) {
+                if(!savedExpensesPanel.getExpenseTable().getValueAt(i, 3).toString().equals(firstCurrency)) {
+                    sameCurrency = false;
+                    break;
+                }
+            }
+            if(sameCurrency) {
+                categoryFilterPanel.setSum(categoryFilterPanel.sum());
+            } else {
+                DifferentCurrencyDialog differentCurrencyDialog = new DifferentCurrencyDialog(frame);
+                differentCurrencyDialog.setVisible(true);
+            }
+
+        });
 
     }
 }
